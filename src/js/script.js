@@ -13,35 +13,32 @@ dragElement(document.getElementById('plant12'));
 dragElement(document.getElementById('plant13'));
 dragElement(document.getElementById('plant14'));
 
-function dragElement (terrarium)  {
+function dragElement(terrariumElement) {
     //establecer 4 posicións para o posicionamento na pantalla//
     let pos1 = 0,
         pos2 = 0,
         pos3 = 0,
         pos4 = 0;
-        terrariumElement.onpointerdown = pointerDrag;
+        terrariumElement.onpointerdown = poiternDrag;
 
 
-//dragElement se aplica a los elementos de terrareo cada vez que el puntero se ponga encima//
-
-
-function pointerDrag(e) {
-    e.preventDefatult();
+function poiternDrag(e) {
+    e.preventDefault();
     console.log(e);
     pos3 = e.clientX;
     pos4 = e.clientY;
     document.onpointermove = elementDrag;
-    document.onpointerup = stopElemntDrag;
+    document.onpointerup = stopElementDrag;
 }
 
-function elementDrag (e){
-    pos1 = pos3 - e.clientX
-    pos2 = pos4 - e.clientY;
+function elementDrag(e){
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 -e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
-    console.log(pos1, pos, pos3, pos4);
-    terrariumElement.style.top = terrarimunElement.offsetTop= pos2 + 'px';
-    terrariumElement.style.left = terrarimunElement.offsetLeft= pos1 + 'px';
+    console.log(pos1, pos2, pos3, pos4);
+    terrariumElement.style.top = terrariumElement.offsetTop - pos2 + 'px';
+    terrariumElement.style.left = terrariumElement.offsetLeft - pos1 + 'px';
 }
 
 function stopElementDrag() {
